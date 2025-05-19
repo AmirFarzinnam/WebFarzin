@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت امیر مهدی فرزین</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* پالت رنگ آبی-بنفش */
+        :root {
+            --primary: #6c5ce7;
+            --primary-light: #a29bfe;
+            --secondary: #fd79a8;
+            --dark: #2d3436;
+            --darker: #1e272e;
+            --light: #f5f6fa;
+            --text: #2d3436;
+            --text-light: #636e72;
+        }
+
+        /* ریست و فونت */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+        }
+        
+        body {
+            background: var(--light);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* هدر جذاب */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 15s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        /* منوی مدرن */
+        .navbar {
+            background: var(--darker);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 1.2rem 2rem;
+            display: block;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .navbar a:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 2rem;
+            width: 0;
+            height: 3px;
+            background: var(--primary-light);
+            transition: width 0.4s ease;
+        }
+
+        .navbar a:hover::after {
+            width: calc(100% - 4rem);
+        }
+
+        /* محتوای اصلی */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 4rem 1rem;
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* کارت‌های جذاب */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.1);
+            padding: 2.5rem;
+            width: 380px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(108, 92, 231, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(108, 92, 231, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .card .icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* دکمه جذاب */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.5);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* فوتر */
+        .footer {
+            background: var(--darker);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-light);
+            transform: translateY(-5px) scale(1.1);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.2s; }
+        .card:nth-child(2) { animation-delay: 0.4s; }
+        .card:nth-child(3) { animation-delay: 0.6s; }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 0.5rem 0;
+            }
+            
+            .navbar a {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .navbar a::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .navbar a:hover::after {
+                width: 80%;
+            }
+            
+            .card {
+                width: 100%;
+                max-width: 500px;
+                padding: 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر -->
+    <header class="header">
+        <h1> سلام به سایت من خوش امدید</h1>
+        <p>طراحی مدرن و جذاب با ترکیب رنگی حرفه‌ای</p>
+    </header>
+    
+    <!-- منو -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i> خانه</a></li>
+            <li><a href="#"><i class="fas fa-palette"></i> رنگ‌ها</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> خدمات</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> تماس</a></li>
+        </ul>
+    </nav>
+    
+    <!-- محتوا -->
+    <main class="main-content">
+        <section class="card">
+            <div class="icon">
+                <i class="fas fa-magic"></i>
+            </div>
+            <h2>طراحی مدرن</h2>
+            <p>استفاده از جدیدترین تکنیک‌های طراحی وب با پالت رنگ آبی بنفش که حس خلاقیت و نوآوری را القا می‌کند.</p>
+            <a href="#" class="btn">مشاهده نمونه‌ها</a>
+        </section>
+        
+        <section class="card">
+            <div class="icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h2>توسعه حرفه‌ای</h2>
+            <p>پیاده‌سازی اصولی و استاندارد با استفاده از تکنولوژی‌های روز دنیا در توسعه وب.</p>
+            <a href="#" class="btn">اطلاعات بیشتر</a>
+        </section>
+        
+        <section class="card">
+            <div class="icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h2>ریسپانسیو</h2>
+            <p>نمایش عالی در تمام دستگاه‌ها از موبایل تا دسکتاپ با حفظ کیفیت و زیبایی طراحی.</p>
+            <a href="#" class="btn">دموی موبایل</a>
+        </section>
+    </main>
+    
+    <!-- فوتر -->
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p>© ۱۴۰۳ - تمام حقوق محفوظ است</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+            امیر مهدی فرزین <i class="fas fa-heart" style="color: var(--secondary);"></i> 
+        </p>
+    </footer>
+
+    <!-- اسکریپت‌های تعاملی -->
+    <script>
+        // افکت اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // افکت پارالاکس برای هدر
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrollPosition = window.scrollY;
+            header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        });
+        
+        // افکت hover روی کارت‌ها
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const x = e.clientX - card.getBoundingClientRect().left;
+                const y = e.clientY - card.getBoundingClientRect().top;
+                
+                const centerX = card.offsetWidth / 2;
+                const centerY = card.offsetHeight / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
